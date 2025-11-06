@@ -21,32 +21,32 @@ wrong_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "wrong.wav"))
 root = tk.Tk()
 root.title("Arithmetic Quiz Game")
 root.geometry("800x500")
-root.resizable(False, False)
+root.resizable(False, False) # Disables full screen option
 
 icon_image = ImageTk.PhotoImage(file=os.path.join(BASE_DIR, "icon.jpg"))
-root.iconphoto(False, icon_image)
+root.iconphoto(False, icon_image) # Icon photo for my pages (Same icons for each page)
 
-# To load the images
+# Background images designed by me
 menu_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "menu.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "menu.png")).resize((800, 500), Image.LANCZOS) # Background image for the menu page
 )
 instruction_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "ins.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "ins.png")).resize((800, 500), Image.LANCZOS) # Background image for the instructions page
 )
 difficulty_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "dif.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "dif.png")).resize((800, 500), Image.LANCZOS) # Background image for the select dificulty page
 )
 quiz_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "quiz.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "quiz.png")).resize((800, 500), Image.LANCZOS) # Background image for the quiz page
 )
 hight_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "high.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "high.png")).resize((800, 500), Image.LANCZOS) # Background image if user gets high score
 )
 med_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "med.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "med.png")).resize((800, 500), Image.LANCZOS) # Background image if user gets average score
 )
 low_bg_photo = ImageTk.PhotoImage(
-    Image.open(os.path.join(BASE_DIR, "low.png")).resize((800, 500), Image.LANCZOS)
+    Image.open(os.path.join(BASE_DIR, "low.png")).resize((800, 500), Image.LANCZOS) # Background image if user gets low/fail score
 )
 
 # FUNCTIONS
@@ -156,7 +156,7 @@ def check_answer():
     user_answer = ans_entry.get()
 
     if ansCorrect(user_answer):
-        correct_sound.play() # Sound will play if answer is correct
+        correct_sound.play() # Sound will play if the answer is correct
         if attempts_left == 2: 
             score += 10 # Score if first try answer is correct
             messagebox.showinfo("Correct!", "Correct on first try! (+10 points)")
@@ -240,4 +240,5 @@ def on_exit(): # Game stops as soon as player leaves the game
 
 # Starts the game at the menu page
 displayMenu() 
+
 root.mainloop()
