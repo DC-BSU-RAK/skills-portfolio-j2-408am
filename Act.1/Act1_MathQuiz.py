@@ -240,7 +240,4 @@ def on_exit(): # Game stops as soon as player leaves the game
 
 # Starts the game at the menu page
 displayMenu() 
-
-
 root.mainloop()
-
