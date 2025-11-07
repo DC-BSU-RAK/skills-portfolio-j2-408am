@@ -15,8 +15,8 @@ pygame.mixer.music.load(os.path.join(BASE_DIR, "bg.mp3"))
 pygame.mixer.music.set_volume(0.2)
 pygame.mixer.music.play(-1)  # loop indefinitely
 
-correct_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "correct.wav"))
-wrong_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "wrong.wav"))
+correct_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "correct.wav")) # Correct answer sound effect
+wrong_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "wrong.wav")) # Wrong answer sound effect
 
 root = tk.Tk()
 root.title("Arithmetic Quiz Game")
@@ -240,5 +240,6 @@ def on_exit(): # Game stops as soon as player leaves the game
 
 # Starts the game at the menu page
 displayMenu() 
+
 
 root.mainloop()
