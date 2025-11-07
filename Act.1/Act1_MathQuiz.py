@@ -170,19 +170,19 @@ def verifyAnswer():
         correct_sound.play() # Sound will play if the answer is correct
         if user_attempts == 2: 
             marks += 10 # Score if first try answer is correct
-            messagebox.showinfo("Correct!", "Correct on first try 🏆! (+10 points)")
+            messagebox.showinfo("Amazing!", "Correct on first try 🏆! (+10 points)")
         else:
             marks += 5 # User's second try and the score achieved if correct
-            messagebox.showinfo("Correct!", "Correct on second try 🏅! (+5 points)")
+            messagebox.showinfo("Alright!", "Correct on second try 🏅! (+5 points)")
         nextProblem()
     else:
         wrong_sound.play() # Sound will play if answer is wrong
         user_attempts -= 1
         if user_attempts > 0:
-            messagebox.showwarning("Incorrect", f"Wrong answer 😔. Try again! ({user_attempts} attempt left)")
+            messagebox.showwarning("Warning", f"Wrong answer 😔. Try again! ({user_attempts} attempt left)")
             root.nametowidget(".attempt_label").config(text=f"Attempts left: {user_attempts}") # This label shows how many attempts left
         else:
-            messagebox.showerror("Incorrect", "No attempts left for this question 💔.")
+            messagebox.showerror("Fail Attempt", "No attempts left for this question 💔.")
             nextProblem()
 
 def nextProblem():
@@ -243,3 +243,4 @@ displayMenu()
 
 
 root.mainloop()
+
