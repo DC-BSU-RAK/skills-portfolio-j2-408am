@@ -69,6 +69,8 @@ class alexaJoke:
         self.current_punchline = ""
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
+        icon_image = ImageTk.PhotoImage(file=os.path.join(base_dir, "resources", "icon.jpg"))
+        root.iconphoto(False, icon_image)
 
         # START SCREEN BG IMAGE
         self.start_bg_img = ImageTk.PhotoImage(
@@ -184,4 +186,5 @@ class alexaJoke:
 # RUN PROGRAM
 root = tk.Tk()
 app = alexaJoke(root)
+
 root.mainloop()
