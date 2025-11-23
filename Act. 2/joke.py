@@ -11,6 +11,10 @@ def load_jokes():
     jokes_path = os.path.join(base_dir, "resources", "randomJokes.txt") # File directory
 
     jokes = []
+    if not os.path.exists(jokes_path):
+        print("Jokes file not found!") # In case the file isn't found in the folder
+        return jokes
+        
     with open(jokes_path, "r", encoding="utf-8") as file:
         for line in file:
             line = line.strip()
@@ -98,6 +102,14 @@ class alexaJoke:
         # CHAT SCREEN
         self.chat_frame = tk.Frame(root, bg="#5FB1EF")
 
+        # STICKY HEADER IMAGE
+        # To make the page look like a messenger app. Further learning from ActiveState and GeeksforGeeks
+        self.header_img = ImageTk.PhotoImage(
+            Image.open(os.path.join(base_dir, "resources", "alexheader.png")).resize((360, 100))
+        )
+        self.header_label = tk.Label(self.chat_frame, image=self.header_img, bg="#5FB1EF")
+        self.header_label.pack(side="top", fill="x")
+
         # Canvas + scrollbar container
         self.chat_area_frame = tk.Frame(self.chat_frame, bg="#5FB1EF")
         self.chat_area_frame.pack(fill="both", expand=True)
@@ -179,6 +191,7 @@ class alexaJoke:
 
 
     # AUTO SCROLL
+    # Learned from PythonTutorial.net and GeeksforGeeks
     def auto_scroll(self):
         # allows automatic scrolling to show latest message
         self.root.after(50, lambda: self.chat_canvas.yview_moveto(1.0))
